@@ -1,0 +1,48 @@
+---
+import Layout from '../layouts/Layout.astro';
+import FaqAccordion from '../components/FaqAccordion';
+---
+<Layout
+  title="FAQ | Zesti Kitchen (Demo) – Lekki, Lagos"
+  description="Frequently asked questions about ordering, reservations, table QR menus, payments, and dining at Zesti Kitchen."
+>
+  <div class="py-12 sm:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      {/* Header */}
+      <div class="text-center max-w-xl mx-auto mb-12">
+        <span class="text-xs uppercase font-mono tracking-widest text-lavender-deep dark:text-lavender-electric font-bold">
+          ★ Help & Information
+        </span>
+        <h1 class="font-display text-4xl sm:text-6xl text-charcoal dark:text-cream font-bold mt-1 text-balance">
+          Frequently Asked Questions
+        </h1>
+        <p class="text-muted dark:text-cream/70 text-sm sm:text-base mt-2">
+          Everything you need to know about our food, two-tap ordering, table reservations, and payments.
+        </p>
+      </div>
+
+      {/* Accordion Component */}
+      <FaqAccordion client:load />
+
+      {/* Still have questions */}
+      <div class="mt-16 p-8 rounded-squircle bg-lemon text-charcoal text-center max-w-2xl mx-auto">
+        <h2 class="font-display text-2xl font-bold mb-2">
+          Still Have a Question?
+        </h2>
+        <p class="text-sm text-charcoal/80 mb-6">
+          Our team is available on WhatsApp right now to help with dietary preferences, private event reservations, or bulk catering inquiries.
+        </p>
+        <a
+          href="https://wa.me/2348000000000"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-charcoal text-lemon font-bold text-xs uppercase tracking-wider shadow-md hover:bg-charcoal/90"
+        >
+          Chat on WhatsApp Now →
+        </a>
+      </div>
+
+    </div>
+  </div>
+</Layout>

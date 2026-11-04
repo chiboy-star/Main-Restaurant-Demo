@@ -1,0 +1,12 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import QrGenerator from '../../components/QrGenerator';
+---
+<Layout
+  title="Table QR Menus | Zesti Kitchen (Demo)"
+  description="Generate and print QR code stand cards for restaurant dining tables with table numbers pre-encoded."
+>
+  <div class="py-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <QrGenerator client:load />
+  </div>
+</Layout>

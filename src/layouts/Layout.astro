@@ -1,0 +1,185 @@
+---
+import '../styles/global.css';
+import { ViewTransitions } from 'astro:transitions';
+import DemoRibbon from '../components/DemoRibbon.astro';
+import SkipLink from '../components/SkipLink.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CartSheet from '../components/CartSheet';
+import CommandMenu from '../components/CommandMenu';
+import FloatingContact from '../components/FloatingContact';
+import BackToTop from '../components/BackToTop';
+import ScrollProgress from '../components/ScrollProgress';
+import CookieBanner from '../components/CookieBanner';
+import brandData from '../../brand.json';
+import defaultSettings from '../data/settings.json';
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+}
+
+const {
+  title,
+  description = "Fresh, fast, and fully yours. Artisanal Nigerian grills, firewood smoky party jollof, and small plates in Lekki, Lagos. Order or reserve in two taps.",
+  image = "/images/og-image.jpg"
+} = Astro.props;
+
+// Hard Rule 1: "Demo in every page title"
+const fullTitle = title.includes('(Demo)') ? title : `${title} | ${brandData.name}`;
+
+// Canonical URL
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://zesti-demo.pages.dev');
+
+// Hard Rule 4: "The site is noindex with a single config flag to flip it for a real client."
+const isNoIndex = brandData.noindex;
+
+// Opening Hours JSON-LD specification
+const openingHoursSpecification = [
+  {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
+    "opens": "11:00",
+    "closes": "22:00"
+  },
+  {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Friday", "Saturday"],
+    "opens": "11:00",
+    "closes": "23:30"
+  },
+  {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Sunday"],
+    "opens": "12:00",
+    "closes": "21:00"
+  }
+];
+
+const restaurantJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": brandData.name,
+  "image": new URL(image, canonicalURL).href,
+  "@id": canonicalURL.href,
+  "url": canonicalURL.href,
+  "telephone": defaultSettings.phone,
+  "priceRange": brandData.priceRange || "₦₦",
+  "servesCuisine": brandData.cuisine,
+  "menu": new URL("/menu", canonicalURL).href,
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Demo Street",
+    "addressLocality": "Lekki Phase 1",
+    "addressRegion": "Lagos",
+    "postalCode": "105102",
+    "addressCountry": "NG"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": defaultSettings.geo.lat,
+    "longitude": defaultSettings.geo.lng
+  },
+  "openingHoursSpecification": openingHoursSpecification,
+  "sameAs": [
+    brandData.googleBusinessProfileUrl
+  ]
+};
+---
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    {/* Hard Rule 4: Noindex switch */}
+    {isNoIndex && (
+      <meta name="robots" content="noindex, nofollow" />
+      <meta name="googlebot" content="noindex, nofollow" />
+    )}
+
+    {/* Primary Meta Tags */}
+    <title>{fullTitle}</title>
+    <meta name="title" content={fullTitle} />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    {/* Open Graph / Facebook */}
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, canonicalURL)} />
+
+    {/* Twitter */}
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={fullTitle} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={new URL(image, canonicalURL)} />
+
+    {/* Preload Self-Hosted Subset WOFF2 Fonts */}
+    <link rel="preload" href="/fonts/dm-serif-display.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/dm-sans.woff2" as="font" type="font/woff2" crossorigin />
+
+    {/* Schema.org Restaurant JSON-LD */}
+    <script type="application/ld+json" set:html={JSON.stringify(restaurantJsonLd)} />
+
+    {/* Dark Mode: No Flash Script */}
+    <script is:inline>
+      (function() {
+        try {
+          const stored = localStorage.getItem('zesti_theme');
+          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          if (stored === 'dark' || (!stored && prefersDark)) {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        } catch (e) {}
+      })();
+    </script>
+
+    <ViewTransitions />
+  </head>
+  <body class="min-h-screen flex flex-col bg-cream dark:bg-charcoal text-charcoal dark:text-cream selection:bg-lemon selection:text-charcoal">
+    {/* First Focusable Element */}
+    <SkipLink />
+
+    {/* Hard Rule 1: Demo Ribbon */}
+    <DemoRibbon />
+
+    {/* Scroll Progress Bar */}
+    <ScrollProgress client:load />
+
+    {/* Sticky Floating Nav */}
+    <Header />
+
+    {/* Main Page Landmark */}
+    <main id="main-content" class="flex-1 w-full">
+      <slot />
+    </main>
+
+    {/* Global Interactive Islands */}
+    <CartSheet client:load />
+    <FloatingContact client:load />
+    <CommandMenu client:load />
+    <BackToTop client:load />
+    <CookieBanner client:load />
+
+    {/* Footer */}
+    <Footer />
+
+    {/* Minimal Service Worker Registration for offline menu caching */}
+    <script is:inline>
+      if ('serviceWorker' in navigator && window.location.protocol.startsWith('http')) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch(function() {});
+        });
+      }
+    </script>
+  </body>
+</html>

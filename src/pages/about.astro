@@ -1,0 +1,98 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout
+  title="Our Story & Philosophy | Zesti Kitchen (Demo) – Lekki, Lagos"
+  description="Learn about the culinary philosophy behind Zesti Kitchen Lekki. Firewood, fresh spices, and friction-free dining."
+>
+  <div class="py-12 sm:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      {/* Hero Header */}
+      <div class="max-w-3xl mx-auto text-center mb-16">
+        <span class="text-xs uppercase font-mono tracking-widest text-lavender-deep dark:text-lavender-electric font-bold">
+          ★ Our Heritage
+        </span>
+        <h1 class="font-display text-4xl sm:text-6xl text-charcoal dark:text-cream font-bold mt-2 text-balance">
+          Rooted in Lagos Fire & Soul
+        </h1>
+        <p class="text-muted dark:text-cream/80 text-base sm:text-lg mt-4 leading-relaxed">
+          Zesti Kitchen was born from a simple belief: the best Nigerian food needs no culinary compromises, and ordering it should never require painful app downloads.
+        </p>
+      </div>
+
+      {/* Story Grid */}
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
+        <div class="space-y-6 text-sm sm:text-base text-muted dark:text-cream/80 leading-relaxed">
+          <h2 class="font-display text-3xl font-bold text-charcoal dark:text-cream">
+            The Firewood Philosophy
+          </h2>
+          <p>
+            In Nigerian celebration culture, there is nothing quite like party jollof cooked over real firewood. The smoky fragrance, the deep caramelization from plum tomatoes and crushed red tatashe, and the tender grilled chicken that falls off the bone.
+          </p>
+          <p>
+            At Zesti Kitchen, we brought that authentic open-fire cooking method into a clean, modern kitchen in Lekki Phase 1. Our beef and goat suya are dry-rubbed in authentic Kano Yaji spice, flame-kissed to order, and served steaming hot.
+          </p>
+          <div class="pt-4 flex gap-4">
+            <a
+              href="/menu"
+              class="px-6 py-3 rounded-full bg-lemon text-charcoal font-bold text-xs uppercase tracking-wider hover:bg-yellow-300"
+            >
+              Taste Our Menu
+            </a>
+            <a
+              href="/gallery"
+              class="px-6 py-3 rounded-full border border-charcoal/20 dark:border-cream/20 text-charcoal dark:text-cream font-bold text-xs uppercase tracking-wider hover:bg-black/5"
+            >
+              Explore Gallery
+            </a>
+          </div>
+        </div>
+
+        {/* Ambiance Photo Card */}
+        <div class="relative aspect-[4/3] rounded-squircle overflow-hidden shadow-2xl border-4 border-lemon/30 group">
+          <img
+            src="/images/interior-dining.webp"
+            alt="Warm ambient dining room at Zesti Kitchen Lekki"
+            width="800"
+            height="600"
+            loading="lazy"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            onerror="this.onerror=null; this.src='/images/placeholder-dish.svg';"
+          />
+          <div class="absolute bottom-4 left-4 bg-charcoal/80 backdrop-blur-md px-3.5 py-1.5 rounded-full text-xs font-mono text-lemon">
+            Lekki Phase 1 Dining Room
+          </div>
+        </div>
+      </div>
+
+      {/* Three Pillars */}
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8 border-t border-charcoal/10 dark:border-cream/10">
+        <div class="p-6 rounded-squircle bg-white dark:bg-charcoal-100 border border-charcoal/10 dark:border-cream/10">
+          <div class="text-3xl mb-3">🌿</div>
+          <h3 class="font-display text-xl font-bold text-charcoal dark:text-cream mb-2">Zero Compromise Sourcing</h3>
+          <p class="text-xs text-muted dark:text-cream/70 leading-relaxed">
+            Fresh river catfish, stone-free local brown rice, unrefined organic red palm oil, and fresh uziza leaves delivered straight from local markets daily.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-squircle bg-white dark:bg-charcoal-100 border border-charcoal/10 dark:border-cream/10">
+          <div class="text-3xl mb-3">⚡</div>
+          <h3 class="font-display text-xl font-bold text-charcoal dark:text-cream mb-2">Frictionless Dining</h3>
+          <p class="text-xs text-muted dark:text-cream/70 leading-relaxed">
+            Every feature is designed around your time: order or book in two taps, instant WhatsApp messaging, and transparent naira pricing with no hidden charges.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-squircle bg-white dark:bg-charcoal-100 border border-charcoal/10 dark:border-cream/10">
+          <div class="text-3xl mb-3">🤝</div>
+          <h3 class="font-display text-xl font-bold text-charcoal dark:text-cream mb-2">Warm Lagos Hospitality</h3>
+          <p class="text-xs text-muted dark:text-cream/70 leading-relaxed">
+            Whether you’re ordering lunch to your office or celebrating a birthday in our private dining booth, our kitchen team greets you like family.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</Layout>

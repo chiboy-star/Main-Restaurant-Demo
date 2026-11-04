@@ -1,0 +1,102 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import SignatureFavorites from '../components/SignatureFavorites';
+import ExclusiveDining from '../components/ExclusiveDining.astro';
+import FaqAccordion from '../components/FaqAccordion';
+import NewsletterBand from '../components/NewsletterBand';
+---
+<Layout
+  title="Zesti Kitchen (Demo) – Lekki, Lagos"
+  description="Fresh, fast, and fully yours. Authentic Nigerian grill, smoky party jollof, and small plates. Order or reserve in two taps."
+>
+  {/* 1. Hero on Charcoal with giant headline, cut-out dish, Open now status & CTAs */}
+  <Hero />
+
+  {/* 2. Signature Favorites: Perforated Lavender Ticket Cards Carousel */}
+  <SignatureFavorites client:load />
+
+  {/* 3. Exclusive Dining Experiences: Staggered photo cards with Chilli & Lavender outlines */}
+  <ExclusiveDining />
+
+  {/* 4. Two-Tap Value Proposition Highlights */}
+  <section class="py-16 sm:py-20 bg-cream-50 dark:bg-charcoal-200 border-b border-charcoal/10 dark:border-cream/10" aria-label="Why Zesti Kitchen">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs uppercase font-mono tracking-widest text-lavender-deep dark:text-lavender-electric font-bold">
+          ★ The Friction-Free Standard
+        </span>
+        <h2 class="font-display text-3xl sm:text-4xl text-charcoal dark:text-cream font-bold mt-1 text-balance">
+          Why Nigerian Food Lovers Order Here
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="p-6 rounded-squircle bg-white dark:bg-charcoal-100 border border-charcoal/10 dark:border-cream/10 shadow-sm flex flex-col gap-3">
+          <div class="w-12 h-12 rounded-full bg-lemon text-charcoal flex items-center justify-center font-bold text-xl">
+            ⚡
+          </div>
+          <h3 class="font-display text-xl font-bold text-charcoal dark:text-cream">
+            Order in Two Taps
+          </h3>
+          <p class="text-sm text-muted dark:text-cream/70 leading-relaxed">
+            Tap '+' on any dish, tap 'Send on WhatsApp'. No account setup, no password resets, no app store downloads eating your phone data.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-squircle bg-white dark:bg-charcoal-100 border border-charcoal/10 dark:border-cream/10 shadow-sm flex flex-col gap-3">
+          <div class="w-12 h-12 rounded-full bg-lavender-electric text-charcoal flex items-center justify-center font-bold text-xl">
+            🔥
+          </div>
+          <h3 class="font-display text-xl font-bold text-charcoal dark:text-cream">
+            Authentic Wood & Fire
+          </h3>
+          <p class="text-sm text-muted dark:text-cream/70 leading-relaxed">
+            Real firewood smoke on our party jollof, slow-braised assorted peppered meats, and authentic Kano Yaji spice dry rubs on our suya grills.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-squircle bg-white dark:bg-charcoal-100 border border-charcoal/10 dark:border-cream/10 shadow-sm flex flex-col gap-3">
+          <div class="w-12 h-12 rounded-full bg-basil text-white flex items-center justify-center font-bold text-xl">
+            📱
+          </div>
+          <h3 class="font-display text-xl font-bold text-charcoal dark:text-cream">
+            Live Table QR Menus
+          </h3>
+          <p class="text-sm text-muted dark:text-cream/70 leading-relaxed">
+            Scan your table QR code to automatically prefill your table number. Orders go directly to the kitchen without waiting for a waiter.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* 5. Frequently Asked Questions Accordion */}
+  <section class="py-16 sm:py-24 bg-cream dark:bg-charcoal border-b border-charcoal/10 dark:border-cream/10" aria-labelledby="home-faq-heading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-xl mx-auto mb-10">
+        <span class="text-xs uppercase font-mono tracking-widest text-lavender-deep dark:text-lavender-electric font-bold">
+          Questions & Answers
+        </span>
+        <h2 id="home-faq-heading" class="font-display text-3xl sm:text-5xl text-charcoal dark:text-cream font-bold mt-1 text-balance">
+          Frequently Asked
+        </h2>
+      </div>
+
+      <FaqAccordion client:load limit={4} />
+
+      <div class="text-center mt-8">
+        <a
+          href="/faq"
+          class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-charcoal dark:text-cream hover:text-lemon transition-colors underline"
+        >
+          <span>View all questions & answers</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  {/* 6. Lemon Stay Connected Band */}
+  <NewsletterBand client:load />
+</Layout>

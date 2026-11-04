@@ -1,0 +1,92 @@
+---
+import HeroActions from './HeroActions';
+import OpenNowBadge from './OpenNowBadge';
+---
+<section class="relative bg-charcoal text-cream overflow-hidden pt-12 pb-20 sm:pt-20 sm:pb-28 lg:pt-24 lg:pb-36 border-b border-white/10" aria-labelledby="hero-heading">
+  {/* Subtle decorative background glow */}
+  <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-lemon/10 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
+  <div class="absolute top-1/3 right-10 w-[300px] h-[300px] bg-lavender/15 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      
+      {/* Left Column: Headline and CTAs */}
+      <div class="lg:col-span-7 flex flex-col gap-6 z-20">
+        <div class="flex items-center gap-3">
+          <OpenNowBadge client:load compact={false} />
+          <span class="text-xs uppercase font-bold tracking-widest text-lemon/80 font-mono">
+            • Lekki Phase 1, Lagos
+          </span>
+        </div>
+
+        {/* Giant High-Contrast Serif Headline */}
+        <h1
+          id="hero-heading"
+          class="font-display text-lemon font-normal text-5xl sm:text-7xl lg:text-8xl tracking-tight leading-[0.95] text-balance"
+        >
+          Good food.<br />
+          <span class="text-cream italic font-serif">Two taps</span> away.
+        </h1>
+
+        <p class="text-base sm:text-lg text-cream/80 max-w-xl leading-relaxed">
+          Artisanal Nigerian grills, firewood smoky party jollof, and small plates made fresh to order. No app download. No passwords. Tap what you love and send your order straight to our kitchen in seconds.
+        </p>
+
+        {/* Action Buttons */}
+        <HeroActions client:load />
+
+        {/* Proof metrics / reassurance */}
+        <div class="grid grid-cols-3 gap-4 pt-6 border-t border-white/10 max-w-lg text-xs">
+          <div>
+            <div class="font-display text-xl text-lemon font-bold">2 Taps</div>
+            <div class="text-cream/60">Instant Checkout</div>
+          </div>
+          <div>
+            <div class="font-display text-xl text-lemon font-bold tabular-nums">₦0</div>
+            <div class="text-cream/60">No App Fees</div>
+          </div>
+          <div>
+            <div class="font-display text-xl text-lemon font-bold">Fresh</div>
+            <div class="text-cream/60">Prepared Daily</div>
+          </div>
+        </div>
+      </div>
+
+      {/* Right Column: Cut-out Dish Overlapping Headline */}
+      <div class="lg:col-span-5 relative flex justify-center items-center z-10">
+        <div class="relative w-72 h-72 sm:w-96 sm:h-96 lg:w-[460px] lg:h-[460px]">
+          {/* Circular backdrop aura */}
+          <div class="absolute inset-4 rounded-full bg-gradient-to-tr from-lemon/20 to-lavender/30 blur-xl animate-pulse-subtle" />
+          
+          {/* Concentric rings */}
+          <div class="absolute inset-0 rounded-full border border-lemon/20 border-dashed animate-[spin_60s_linear_infinite]" />
+          <div class="absolute inset-6 rounded-full border border-white/10" />
+
+          {/* Cut-out Hero Dish Image */}
+          <div class="relative w-full h-full flex items-center justify-center p-4">
+            <img
+              src="/images/hero-dish.webp"
+              alt="Smoky Party Jollof with Grilled Chicken, Sweet Dodo Plantain, and Garnished Greens"
+              width="500"
+              height="500"
+              fetchpriority="high"
+              decoding="async"
+              class="w-full h-full object-contain filter drop-shadow-[0_25px_35px_rgba(0,0,0,0.65)] hover:scale-105 transition-transform duration-500"
+              onerror="this.onerror=null; this.src='/images/placeholder-dish.svg';"
+            />
+          </div>
+
+          {/* Floating Chef's Badge (Von Restorff effect) */}
+          <div class="absolute bottom-4 -left-4 sm:bottom-8 sm:left-0 bg-lemon text-charcoal px-4 py-2.5 rounded-squircle-sm shadow-xl flex items-center gap-2.5 transform -rotate-3 hover:rotate-0 transition-transform">
+            <span class="text-xl" role="img" aria-label="Flame">🔥</span>
+            <div>
+              <div class="text-[10px] uppercase font-bold tracking-wider text-charcoal/70">Signature Special</div>
+              <div class="font-bold text-xs sm:text-sm font-sans">Smoky Party Jollof • ₦5,500</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

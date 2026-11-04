@@ -1,0 +1,85 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const galleryItems = [
+  { id: 'gallery-dish-1', title: 'Smoky Firewood Party Jollof', category: 'Rice & Mains', image: '/images/gallery-jollof.webp' },
+  { id: 'gallery-dish-2', title: 'Flame-Grilled Beef Suya Skewers', category: 'Grills', image: '/images/gallery-suya.webp' },
+  { id: 'gallery-dish-3', title: 'Assorted Assun Goat Meat', category: 'Starters', image: '/images/gallery-asun.webp' },
+  { id: 'gallery-dish-4', title: 'Velvety Pounded Yam & Efo Riro', category: 'Soups', image: '/images/gallery-efo.webp' },
+  { id: 'gallery-dish-5', title: 'Point-and-Kill Catfish Pepper Soup', category: 'Soups', image: '/images/gallery-catfish.webp' },
+  { id: 'gallery-dish-6', title: 'Golden Fried Sweet Dodo Plantain', category: 'Sides', image: '/images/gallery-dodo.webp' },
+  { id: 'gallery-dish-7', title: 'Warm Spiced Sugar Puff-Puff', category: 'Desserts', image: '/images/gallery-puffpuff.webp' },
+  { id: 'gallery-dish-8', title: 'Lekki Twilight Dining Room', category: 'Ambiance', image: '/images/interior-dining.webp' },
+  { id: 'gallery-dish-9', title: 'Signature Lagos Chapman Cocktail', category: 'Drinks', image: '/images/gallery-chapman.webp' },
+  { id: 'gallery-dish-10', title: 'Seafood Okro with Jumbo Tiger Prawns', category: 'Soups', image: '/images/gallery-okro.webp' },
+  { id: 'gallery-dish-11', title: 'Live Fire Charcoal Pit Grilling', category: 'Kitchen', image: '/images/scene-sauce-pour.webp' },
+  { id: 'gallery-dish-12', title: 'Creamy Garlic Chicken Linguine', category: 'Continental', image: '/images/gallery-pasta.webp' }
+];
+---
+<Layout
+  title="Photo Gallery | Zesti Kitchen (Demo) – Lekki, Lagos"
+  description="Visual feast of our flame-cooked Nigerian dishes, live suya grills, artisanal cocktails, and dining ambiance in Lekki."
+>
+  <div class="py-12 sm:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      {/* Header */}
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs uppercase font-mono tracking-widest text-lavender-deep dark:text-lavender-electric font-bold">
+          ★ The Visual Feast
+        </span>
+        <h1 class="font-display text-4xl sm:text-6xl text-charcoal dark:text-cream font-bold mt-1 text-balance">
+          Food & Ambiance Gallery
+        </h1>
+        <p class="text-muted dark:text-cream/70 text-sm sm:text-base mt-2">
+          Glimpses into our live kitchen, fiery pepper sauces, and evening dining ambiance.
+        </p>
+      </div>
+
+      {/* Gallery Grid */}
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        {galleryItems.map((item) => (
+          <figure
+            key={item.id}
+            class="squircle bg-white dark:bg-charcoal-100 overflow-hidden shadow-md border border-charcoal/10 dark:border-cream/10 group flex flex-col justify-between"
+          >
+            <div class="relative w-full aspect-[4/3] bg-charcoal/10 overflow-hidden">
+              <img
+                src={item.image}
+                alt={item.title}
+                width="600"
+                height="450"
+                loading="lazy"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                onerror="this.onerror=null; this.src='/images/placeholder-dish.svg';"
+              />
+              <div class="absolute top-3 right-3 bg-charcoal/80 backdrop-blur-sm text-lemon text-[10px] font-mono px-2.5 py-1 rounded-full uppercase">
+                {item.category}
+              </div>
+            </div>
+
+            <figcaption class="p-4 flex items-center justify-between">
+              <span class="font-bold text-sm text-charcoal dark:text-cream">
+                {item.title}
+              </span>
+              <a
+                href="/menu"
+                class="text-xs text-lavender-deep dark:text-lemon font-semibold hover:underline"
+              >
+                Order →
+              </a>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+
+      {/* Mandatory Gallery Footer Requirement */}
+      <div class="mt-16 p-6 rounded-squircle bg-charcoal/5 dark:bg-charcoal-200 border border-charcoal/10 text-center">
+        <p class="text-xs font-mono text-muted dark:text-cream/60">
+          Demo imagery: Images shown on this demonstration site are curated and AI-generated conceptual representations for restaurant pitch demonstration. All dish rights and credits are recorded in CREDITS.md.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</Layout>

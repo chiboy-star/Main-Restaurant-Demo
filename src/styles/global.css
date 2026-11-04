@@ -1,0 +1,211 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'DM Serif Display';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/dm-serif-display.woff2') format('woff2');
+  /* Size-adjusted fallback to prevent CLS */
+  ascent-override: 95%;
+  descent-override: 25%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 100 1000;
+  font-display: swap;
+  src: url('/fonts/dm-sans.woff2') format('woff2');
+  ascent-override: 98%;
+  descent-override: 26%;
+  line-gap-override: 0%;
+}
+
+:root {
+  --color-lemon: #F5E663;
+  --color-lavender-electric: #8B7CFF;
+  --color-lavender-deep: #4B3BD1;
+  --color-charcoal: #1B1B1F;
+  --color-cream: #FFF8E6;
+  --color-chilli: #E8502F;
+  --color-basil: #1F6F54;
+  --color-whatsapp: #25D366;
+  --color-mist: #E9E6DD;
+  
+  --bg-primary: var(--color-cream);
+  --text-primary: var(--color-charcoal);
+  --text-muted: #595856;
+}
+
+html.dark {
+  --bg-primary: var(--color-charcoal);
+  --text-primary: var(--color-cream);
+  --text-muted: #B5B2A8;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  transition: background-color 0.25s ease, color 0.25s ease;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Tabular numbers for prices, quantities, times, totals */
+.tabular-nums,
+[data-tabular-nums] {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+/* Balanced headlines */
+h1, h2, h3, h4, .text-balance {
+  text-wrap: balance;
+}
+
+/* Continuous corners (squircle) with border-radius fallback */
+.squircle {
+  border-radius: 28px;
+}
+@supports (corner-shape: squircle) {
+  .squircle {
+    corner-shape: squircle;
+  }
+}
+
+.squircle-sm {
+  border-radius: 20px;
+}
+@supports (corner-shape: squircle) {
+  .squircle-sm {
+    corner-shape: squircle;
+  }
+}
+
+.squircle-lg {
+  border-radius: 32px;
+}
+@supports (corner-shape: squircle) {
+  .squircle-lg {
+    corner-shape: squircle;
+  }
+}
+
+/* Perforated ticket edge for Signature Favorites */
+.ticket-card {
+  position: relative;
+  background-color: var(--color-lavender-electric);
+  color: var(--color-charcoal);
+  border-radius: 28px;
+  overflow: hidden;
+}
+.ticket-edge-left,
+.ticket-edge-right {
+  position: absolute;
+  top: 50%;
+  width: 24px;
+  height: 24px;
+  background-color: var(--bg-primary);
+  border-radius: 9999px;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+.ticket-edge-left {
+  left: -12px;
+}
+.ticket-edge-right {
+  right: -12px;
+}
+.ticket-divider-line {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  right: 12px;
+  border-top: 2px dashed rgba(27, 27, 31, 0.25);
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* Safe area insets */
+.safe-pb {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+.safe-mb {
+  margin-bottom: env(safe-area-inset-bottom, 0px);
+}
+.safe-pt {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+/* Hit slop target minimum 44px */
+.hit-slop {
+  position: relative;
+}
+.hit-slop::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 44px;
+  min-height: 44px;
+  width: 100%;
+  height: 100%;
+}
+
+/* WCAG Focus rings */
+:focus-visible {
+  outline: 2px solid var(--color-lavender-deep);
+  outline-offset: 3px;
+}
+html.dark :focus-visible {
+  outline: 2px solid var(--color-lemon);
+  outline-offset: 3px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Print Stylesheet */
+@media print {
+  aside,
+  header,
+  footer,
+  .no-print,
+  #floating-contact,
+  #cart-sticky-bar,
+  #dark-mode-toggle,
+  .cookie-banner {
+    display: none !important;
+  }
+  
+  body {
+    background: white !important;
+    color: black !important;
+    font-size: 12pt;
+  }
+  
+  .print-page-break {
+    page-break-after: always;
+  }
+  
+  .print-only {
+    display: block !important;
+  }
+  
+  a[href]::after {
+    content: "" !important;
+  }
+}

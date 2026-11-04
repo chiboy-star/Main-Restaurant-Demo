@@ -1,0 +1,48 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ReservationForm from '../components/ReservationForm';
+import OpenNowBadge from '../components/OpenNowBadge';
+import defaultSettings from '../data/settings.json';
+---
+<Layout
+  title="Book a Table | Zesti Kitchen (Demo) – Lekki, Lagos"
+  description="Reserve a table at Zesti Kitchen Lekki in two taps. Immediate WhatsApp confirmation and calendar invite."
+>
+  <div class="py-12 sm:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      {/* Header */}
+      <div class="text-center max-w-xl mx-auto mb-10">
+        <div class="flex items-center justify-center gap-2 mb-3">
+          <OpenNowBadge client:load />
+        </div>
+        <h1 class="font-display text-4xl sm:text-6xl text-charcoal dark:text-cream font-bold text-balance">
+          Book a Table
+        </h1>
+        <p class="text-muted dark:text-cream/70 text-sm sm:text-base mt-2">
+          Two taps: select your slot chip below, then tap confirm. No credit card required.
+        </p>
+      </div>
+
+      {/* Reservation Form Preact Island */}
+      <ReservationForm client:load />
+
+      {/* Booking policies & reassurance */}
+      <div class="max-w-xl mx-auto mt-12 grid grid-cols-1 sm:grid-cols-3 gap-4 text-center text-xs text-muted dark:text-cream/60">
+        <div class="p-3 rounded-squircle-sm bg-charcoal/5 dark:bg-charcoal-50 border border-charcoal/10">
+          <strong class="text-charcoal dark:text-cream block mb-1">Instant Hold</strong>
+          Tables held for 20 minutes past reservation time.
+        </div>
+        <div class="p-3 rounded-squircle-sm bg-charcoal/5 dark:bg-charcoal-50 border border-charcoal/10">
+          <strong class="text-charcoal dark:text-cream block mb-1">Large Groups</strong>
+          Parties over 10 please contact us on WhatsApp directly.
+        </div>
+        <div class="p-3 rounded-squircle-sm bg-charcoal/5 dark:bg-charcoal-50 border border-charcoal/10">
+          <strong class="text-charcoal dark:text-cream block mb-1">Free Cancellation</strong>
+          Let us know via WhatsApp if your schedule changes.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</Layout>

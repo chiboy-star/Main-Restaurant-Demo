@@ -1,0 +1,32 @@
+{
+  "name": "Zesti Kitchen (Demo)",
+  "shortName": "Zesti",
+  "tagline": "Fresh, fast, and fully yours.",
+  "whatsapp": "2348000000000",
+  "phone": "08000000000",
+  "address": "Demo Street, Lekki, Lagos",
+  "geo": {
+    "lat": 6.4474,
+    "lng": 3.4723
+  },
+  "bank_name": "Demo Bank of Nigeria",
+  "account_number": "0123456789",
+  "account_name": "Zesti Kitchen Demo Ltd (Test Mode)",
+  "temporarily_closed": false,
+  "temporarily_closed_message": "Temporarily closed for private catering. We reopen tomorrow at 11 AM.",
+  "hours": [
+    { "weekday": 0, "open": "12:00", "close": "21:00", "closed": false },
+    { "weekday": 1, "open": "11:00", "close": "22:00", "closed": false },
+    { "weekday": 2, "open": "11:00", "close": "22:00", "closed": false },
+    { "weekday": 3, "open": "11:00", "close": "22:00", "closed": false },
+    { "weekday": 4, "open": "11:00", "close": "22:00", "closed": false },
+    { "weekday": 5, "open": "11:00", "close": "23:30", "closed": false },
+    { "weekday": 6, "open": "11:00", "close": "23:30", "closed": false }
+  ],
+  "holidays": [
+    { "date": "2026-12-25", "label": "Christmas Day", "closed": true },
+    { "date": "2026-12-26", "label": "Boxing Day", "closed": false },
+    { "date": "2027-01-01", "label": "New Year's Day", "closed": true }
+  ],
+  "updated_at": "2026-11-04T12:00:00Z"
+}

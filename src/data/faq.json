@@ -1,0 +1,26 @@
+[
+  {
+    "question": "How fast is the 2-tap ordering and reservation flow?",
+    "answer": "Zesti Kitchen is engineered for instantaneous action. To order: tap '+' on any dish to add it to your order, then tap 'Send order on WhatsApp'. Your full order, itemized bill, and table/delivery details are pre-formatted and sent immediately. To reserve: tap a time slot chip, then tap 'Confirm on WhatsApp'. Done in under five seconds."
+  },
+  {
+    "question": "Where are you located and what are your opening hours?",
+    "answer": "We are located at Demo Street, Lekki Phase 1, Lagos. We are open Monday to Thursday from 11:00 AM to 10:00 PM, Friday to Saturday from 11:00 AM to 11:30 PM, and Sunday from 12:00 PM to 9:00 PM."
+  },
+  {
+    "question": "Can I order for Dine-in, Pickup, or Delivery?",
+    "answer": "Yes! If you scan a QR code at your table, your table number is automatically detected. For home or office orders, simply select 'Pickup' or 'Delivery' and enter your delivery address in the order drawer."
+  },
+  {
+    "question": "What payment methods are supported?",
+    "answer": "By default, pay at the table or cash/POS on delivery keeps the two-tap flow completely friction-free. We also support instant bank transfers with one-tap account detail copying, and secure Paystack / Flutterwave card payments (running in test mode for this demonstration)."
+  },
+  {
+    "question": "How do restaurant owners manage menu items, prices, and sold-out items?",
+    "answer": "Restaurant owners log into a mobile-first Admin Portal via a secure one-time passcode. You can change prices, mark items sold out in real-time with automatic undo toasts, upload food photos compressed on the phone to under 150 KB, adjust split shift hours, and view bookings—no developer required."
+  },
+  {
+    "question": "Is this a real restaurant?",
+    "answer": "Zesti Kitchen is a high-fidelity demonstration website built to prove modern web performance, two-tap mobile commerce, and zero-maintenance admin management for contemporary Nigerian restaurants. All branding, phone numbers, and banking details are simulated for demonstration purposes."
+  }
+]

@@ -1,0 +1,37 @@
+{
+  "name": "zesti-kitchen-demo",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "node scripts/validate-images.js && astro check && astro build",
+    "preview": "astro preview",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "process-images": "node scripts/process-images.js"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/preact": "^3.5.3",
+    "@astrojs/sitemap": "^3.2.1",
+    "@astrojs/tailwind": "^5.1.2",
+    "astro": "^4.16.18",
+    "blurhash": "^2.0.5",
+    "preact": "^10.25.4",
+    "qrcode": "^1.5.4",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.3"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.50.1",
+    "@types/node": "^22.13.1",
+    "@types/qrcode": "^1.5.5",
+    "sharp": "^0.33.5",
+    "vitest": "^3.0.5"
+  },
+  "optionalDependencies": {
+    "@img/sharp-win32-x64": "^0.33.5"
+  }
+}

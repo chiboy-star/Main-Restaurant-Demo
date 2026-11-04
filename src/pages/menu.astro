@@ -1,0 +1,32 @@
+---
+import Layout from '../layouts/Layout.astro';
+import MenuCatalog from '../components/MenuCatalog';
+
+const tableParam = Astro.url.searchParams.get('t') || Astro.url.searchParams.get('table') || '';
+---
+<Layout
+  title="Menu & 2-Tap Order | Zesti Kitchen (Demo) – Lekki, Lagos"
+  description="Explore authentic Nigerian grills, firewood party jollof, efo riro, seafood okro, and chilled cocktails. Order in two taps on WhatsApp."
+>
+  <div class="py-10 sm:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      {/* Header */}
+      <div class="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
+        <span class="text-xs uppercase font-mono tracking-widest text-lavender-deep dark:text-lavender-electric font-bold">
+          ★ Fresh Daily Selection
+        </span>
+        <h1 class="font-display text-4xl sm:text-6xl text-charcoal dark:text-cream font-bold mt-1 text-balance">
+          Our Full Menu
+        </h1>
+        <p class="text-muted dark:text-cream/70 text-sm sm:text-base mt-2">
+          Tap <strong>'+'</strong> to add any dish to your order. Tap <strong>'Send on WhatsApp'</strong> to finalize in seconds.
+        </p>
+      </div>
+
+      {/* Interactive Catalog Preact Island */}
+      <MenuCatalog client:load initialTable={tableParam} />
+
+    </div>
+  </div>
+</Layout>

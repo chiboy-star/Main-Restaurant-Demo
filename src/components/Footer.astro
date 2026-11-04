@@ -1,0 +1,161 @@
+---
+import defaultSettings from '../data/settings.json';
+import OpenNowBadge from './OpenNowBadge';
+import { formatDisplayPhone } from '../lib/phone';
+
+const currentYear = new Date().getFullYear();
+const formattedPhone = formatDisplayPhone(defaultSettings.phone);
+---
+<footer class="bg-charcoal text-cream pt-20 pb-12 border-t border-white/10 relative overflow-hidden" aria-label="Site footer">
+  {/* Ambient decorative glow */}
+  <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-lemon/5 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-16 border-b border-white/10">
+      
+      {/* Brand Column */}
+      <div class="lg:col-span-4 flex flex-col gap-4">
+        <div class="flex items-center gap-2">
+          <div class="w-10 h-10 rounded-full bg-lemon text-charcoal flex items-center justify-center font-display font-extrabold text-2xl shadow-md">
+            Z
+          </div>
+          <span class="font-display font-bold text-2xl text-cream tracking-tight">
+            Zesti Kitchen
+          </span>
+          <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-lemon/20 text-lemon border border-lemon/30 font-mono">
+            Demo
+          </span>
+        </div>
+
+        <p class="text-cream/70 text-sm leading-relaxed max-w-sm">
+          Fresh, fast, and fully yours. Artisanal Nigerian kitchen serving vibrant Lagos street food, wood-fired suya, and modern small plates.
+        </p>
+
+        {/* Live Status Badge */}
+        <div class="pt-2">
+          <OpenNowBadge client:load compact={false} />
+        </div>
+
+        {/* Reviews Google Business Profile Placeholder (Hard Rule 2) */}
+        <div class="pt-3">
+          <a
+            href="https://maps.google.com/?q=Zesti+Kitchen+Demo+Lekki"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 text-xs font-semibold text-lemon hover:underline"
+          >
+            <svg class="w-4 h-4 fill-current text-lemon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/>
+            </svg>
+            <span>Read reviews on Google Business Profile ↗</span>
+          </a>
+        </div>
+      </div>
+
+      {/* Quick Navigation Links */}
+      <div class="lg:col-span-2 flex flex-col gap-3">
+        <h3 class="text-xs font-mono uppercase tracking-widest text-lemon font-bold">
+          Navigate
+        </h3>
+        <ul class="space-y-2 text-sm text-cream/80">
+          <li><a href="/" class="hover:text-lemon transition-colors">Home</a></li>
+          <li><a href="/menu" class="hover:text-lemon transition-colors">Menu & 2-Tap Order</a></li>
+          <li><a href="/reserve" class="hover:text-lemon transition-colors">Book a Table</a></li>
+          <li><a href="/about" class="hover:text-lemon transition-colors">Our Story</a></li>
+          <li><a href="/gallery" class="hover:text-lemon transition-colors">Photo Gallery</a></li>
+          <li><a href="/faq" class="hover:text-lemon transition-colors">Frequently Asked</a></li>
+          <li><a href="/contact" class="hover:text-lemon transition-colors">Contact & Directions</a></li>
+        </ul>
+      </div>
+
+      {/* Live Opening Hours */}
+      <div class="lg:col-span-3 flex flex-col gap-3">
+        <h3 class="text-xs font-mono uppercase tracking-widest text-lemon font-bold">
+          Opening Hours (Lagos)
+        </h3>
+        <ul class="space-y-1.5 text-xs text-cream/80 tabular-nums">
+          <li class="flex justify-between py-1 border-b border-white/5">
+            <span>Mon – Thu</span>
+            <span class="font-semibold text-cream">11:00 AM – 10:00 PM</span>
+          </li>
+          <li class="flex justify-between py-1 border-b border-white/5">
+            <span>Fri – Sat</span>
+            <span class="font-semibold text-lemon">11:00 AM – 11:30 PM</span>
+          </li>
+          <li class="flex justify-between py-1 border-b border-white/5">
+            <span>Sunday</span>
+            <span class="font-semibold text-cream">12:00 PM – 9:00 PM</span>
+          </li>
+        </ul>
+        <p class="text-[11px] text-cream/50 mt-1">
+          Last kitchen call 45 minutes before closing.
+        </p>
+      </div>
+
+      {/* Contact & Admin Portal */}
+      <div class="lg:col-span-3 flex flex-col gap-3">
+        <h3 class="text-xs font-mono uppercase tracking-widest text-lemon font-bold">
+          Visit Us
+        </h3>
+        <div class="text-xs text-cream/80 space-y-2">
+          <p class="flex items-start gap-2">
+            <span class="text-lemon">📍</span>
+            <span>{defaultSettings.address}</span>
+          </p>
+          <p class="flex items-center gap-2">
+            <span class="text-lemon">📞</span>
+            <a href={`tel:+2348000000000`} class="hover:text-lemon underline">{formattedPhone}</a>
+          </p>
+          <p class="flex items-center gap-2">
+            <span class="text-whatsapp">💬</span>
+            <a
+              href={`https://wa.me/${defaultSettings.whatsapp}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-whatsapp font-bold"
+            >
+              WhatsApp Us (Instant)
+            </a>
+          </p>
+        </div>
+
+        {/* Portal links */}
+        <div class="pt-4 mt-2 border-t border-white/10 flex flex-col gap-2">
+          <a
+            href="/for-owners"
+            class="text-xs font-bold text-lemon hover:underline flex items-center gap-1"
+          >
+            <span>★ Pitch Deck & Setup Guide for Owners</span>
+          </a>
+          <a
+            href="/admin"
+            class="text-xs text-cream/60 hover:text-cream flex items-center gap-1"
+          >
+            <span>🔒 Owner Admin Dashboard</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    {/* Giant Wordmark Section (Visual direction requirement) */}
+    <div class="py-12 flex justify-center items-center overflow-hidden select-none" aria-hidden="true">
+      <div class="font-display text-[16vw] sm:text-[18vw] font-black leading-none tracking-tighter text-cream/[0.04] hover:text-lemon/[0.08] transition-colors duration-500 whitespace-nowrap text-center">
+        ZESTI
+      </div>
+    </div>
+
+    {/* Bottom Copyright & Last Updated Stamp */}
+    <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-cream/50">
+      <div class="flex items-center gap-2">
+        <span>© {currentYear} Zesti Kitchen (Demo). Built for local food business pitch demonstration.</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <span>Last updated: <time datetime={defaultSettings.updated_at} class="font-mono text-cream/70">4 Nov 2026</time></span>
+        <a href="/for-owners" class="text-lemon hover:underline">White-label config</a>
+      </div>
+    </div>
+
+  </div>
+</footer>

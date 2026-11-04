@@ -1,0 +1,134 @@
+---
+import Layout from '../layouts/Layout.astro';
+import MapFacade from '../components/MapFacade';
+import defaultSettings from '../data/settings.json';
+import OpenNowBadge from '../components/OpenNowBadge';
+import { formatDisplayPhone } from '../lib/phone';
+
+const formattedPhone = formatDisplayPhone(defaultSettings.phone);
+---
+<Layout
+  title="Contact & Location | Zesti Kitchen (Demo) – Lekki, Lagos"
+  description="Visit Zesti Kitchen in Lekki Phase 1, Lagos. Click-to-call, WhatsApp click-to-chat, and live location map."
+>
+  <div class="py-12 sm:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      {/* Header */}
+      <div class="text-center max-w-xl mx-auto mb-12">
+        <div class="flex justify-center mb-3">
+          <OpenNowBadge client:load />
+        </div>
+        <h1 class="font-display text-4xl sm:text-6xl text-charcoal dark:text-cream font-bold text-balance">
+          Get in Touch
+        </h1>
+        <p class="text-muted dark:text-cream/70 text-sm sm:text-base mt-2">
+          We’d love to host you. Drop by our Lekki dining room or reach us immediately on WhatsApp.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        
+        {/* Contact Info Card */}
+        <div class="lg:col-span-5 space-y-6">
+          <div class="p-8 rounded-squircle bg-white dark:bg-charcoal-100 border border-charcoal/10 dark:border-cream/10 shadow-lg space-y-6">
+            
+            {/* Address */}
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-full bg-lemon text-charcoal flex items-center justify-center text-lg shrink-0">
+                📍
+              </div>
+              <div>
+                <h2 class="font-display font-bold text-lg text-charcoal dark:text-cream">
+                  Location
+                </h2>
+                <p class="text-sm text-muted dark:text-cream/70 mt-1">
+                  {defaultSettings.address}
+                </p>
+                <p class="text-xs text-muted dark:text-cream/50 mt-0.5">
+                  Lekki Phase 1, Lagos, Nigeria
+                </p>
+              </div>
+            </div>
+
+            {/* Phone Click-to-Call */}
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-full bg-lavender-electric text-charcoal flex items-center justify-center text-lg shrink-0">
+                📞
+              </div>
+              <div>
+                <h2 class="font-display font-bold text-lg text-charcoal dark:text-cream">
+                  Phone (Click-to-Call)
+                </h2>
+                <a
+                  href="tel:+2348000000000"
+                  class="text-sm font-bold text-charcoal dark:text-lemon hover:underline block mt-1"
+                >
+                  {formattedPhone}
+                </a>
+                <span class="text-xs text-muted dark:text-cream/50">
+                  Available during open dining hours
+                </span>
+              </div>
+            </div>
+
+            {/* WhatsApp */}
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-full bg-whatsapp text-white flex items-center justify-center text-lg shrink-0">
+                💬
+              </div>
+              <div>
+                <h2 class="font-display font-bold text-lg text-charcoal dark:text-cream">
+                  WhatsApp Direct
+                </h2>
+                <a
+                  href={`https://wa.me/${defaultSettings.whatsapp}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-sm font-bold text-whatsapp hover:underline block mt-1"
+                >
+                  Chat with Kitchen Team ↗
+                </a>
+                <span class="text-xs text-muted dark:text-cream/50">
+                  Average response time: &lt; 2 minutes
+                </span>
+              </div>
+            </div>
+
+            {/* Live Opening Hours */}
+            <div class="pt-4 border-t border-charcoal/10 dark:border-cream/10 space-y-2">
+              <h2 class="font-display font-bold text-base text-charcoal dark:text-cream">
+                Kitchen Hours
+              </h2>
+              <div class="text-xs space-y-1 text-muted dark:text-cream/70 tabular-nums">
+                <div class="flex justify-between">
+                  <span>Mon – Thu:</span>
+                  <span class="font-bold text-charcoal dark:text-cream">11:00 AM – 10:00 PM</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>Fri – Sat:</span>
+                  <span class="font-bold text-lemon">11:00 AM – 11:30 PM</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>Sunday:</span>
+                  <span class="font-bold text-charcoal dark:text-cream">12:00 PM – 9:00 PM</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        {/* Map Facade Column */}
+        <div class="lg:col-span-7 flex flex-col gap-4">
+          <MapFacade client:load />
+          <p class="text-xs text-muted dark:text-cream/60 text-center">
+            Ample street and dedicated valet parking available on arrival.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</Layout>

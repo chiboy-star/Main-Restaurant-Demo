@@ -1,0 +1,92 @@
+---
+/**
+ * Visual Direction: Exclusive Dining Experiences.
+ * Staggered photo cards with Chilli or Lavender outlines overlapping the giant headline,
+ * short paragraph, and "View Our Gallery" button.
+ */
+---
+<section class="py-20 sm:py-28 bg-charcoal text-cream overflow-hidden border-t border-b border-white/10" aria-labelledby="exclusive-dining-heading">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      
+      {/* Left Column: Giant Headline & Copy */}
+      <div class="lg:col-span-6 flex flex-col gap-6 z-10">
+        <span class="text-xs uppercase font-extrabold tracking-widest text-lemon font-mono">
+          ◆ Intimate & Unhurried
+        </span>
+
+        <h2 id="exclusive-dining-heading" class="font-display text-4xl sm:text-6xl text-cream font-normal leading-[1.05] text-balance">
+          Exclusive Dining <br />
+          <span class="text-lemon italic font-serif">Experiences</span> in Lekki.
+        </h2>
+
+        <p class="text-cream/80 text-base sm:text-lg leading-relaxed max-w-xl">
+          Whether it’s private tasting menus, weekend live charcoal grills under ambient Edison lights, or an intimate booth for two, Zesti Kitchen pairs fire-cooked flavours with warm Lagos hospitality.
+        </p>
+
+        <div class="flex flex-wrap items-center gap-4 pt-4">
+          <a
+            href="/gallery"
+            class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-cream text-charcoal hover:bg-lemon transition-colors font-bold text-xs uppercase tracking-wider focus:outline-none focus:ring-2 focus:ring-lemon min-h-[44px]"
+          >
+            <span>View Our Gallery</span>
+            <span aria-hidden="true">→</span>
+          </a>
+
+          <a
+            href="/reserve"
+            class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-cream/30 text-cream hover:bg-white/10 transition-colors font-bold text-xs uppercase tracking-wider focus:outline-none focus:ring-2 focus:ring-white min-h-[44px]"
+          >
+            <span>Reserve a Table</span>
+          </a>
+        </div>
+      </div>
+
+      {/* Right Column: Staggered Photo Cards with Chilli and Lavender outlines */}
+      <div class="lg:col-span-6 relative flex justify-center items-center">
+        <div class="relative w-full max-w-lg h-[420px] sm:h-[480px]">
+          
+          {/* Card 1: Warm Steam & Sauce Pour shot (Chilli outline) */}
+          <div class="absolute top-0 left-0 w-3/5 aspect-[4/5] rounded-squircle overflow-hidden shadow-2xl border-4 border-chilli transform -rotate-3 hover:rotate-0 transition-transform duration-300 z-10 group">
+            <img
+              src="/images/scene-sauce-pour.webp"
+              alt="Live peppered sauce pour over flame-grilled chops"
+              width="480"
+              height="600"
+              loading="lazy"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              onerror="this.onerror=null; this.src='/images/placeholder-dish.svg';"
+            />
+            <div class="absolute bottom-3 left-3 bg-charcoal/80 backdrop-blur-sm text-cream px-3 py-1 rounded-full text-[11px] font-mono">
+              Live Fire Grill
+            </div>
+          </div>
+
+          {/* Card 2: Artisanal Plating & Wine (Lavender outline) */}
+          <div class="absolute bottom-2 right-0 w-3/5 aspect-[4/5] rounded-squircle overflow-hidden shadow-2xl border-4 border-lavender-electric transform rotate-4 hover:rotate-0 transition-transform duration-300 z-20 group">
+            <img
+              src="/images/scene-steam-suya.webp"
+              alt="Steaming hot suya platter with freshly chopped garnish"
+              width="480"
+              height="600"
+              loading="lazy"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              onerror="this.onerror=null; this.src='/images/placeholder-dish.svg';"
+            />
+            <div class="absolute bottom-3 right-3 bg-charcoal/80 backdrop-blur-sm text-lemon px-3 py-1 rounded-full text-[11px] font-mono">
+              Private Dining
+            </div>
+          </div>
+
+          {/* Floating accent badge */}
+          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 bg-lemon text-charcoal rounded-full px-4 py-2 shadow-2xl font-display font-bold text-xs uppercase tracking-wider border-2 border-charcoal">
+            Chef Tasting Table
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

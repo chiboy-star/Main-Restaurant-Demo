@@ -1,0 +1,42 @@
+{
+  "name": "Zesti Kitchen (Demo)",
+  "shortName": "Zesti",
+  "tagline": "Fresh, fast, and fully yours.",
+  "cuisine": "Nigerian grill and small plates with a few continental crowd-pleasers",
+  "isDemo": true,
+  "noindex": true,
+  "colors": {
+    "lemon": "#F5E663",
+    "electricLavender": "#8B7CFF",
+    "deepLavender": "#4B3BD1",
+    "charcoal": "#1B1B1F",
+    "cream": "#FFF8E6",
+    "chilli": "#E8502F",
+    "basil": "#1F6F54",
+    "whatsapp": "#25D366",
+    "mist": "#E9E6DD"
+  },
+  "logo": "/images/logo.svg",
+  "whatsappNumber": "2348000000000",
+  "phone": "08000000000",
+  "address": "Demo Street, Lekki, Lagos",
+  "geo": {
+    "lat": 6.4474,
+    "lng": 3.4723
+  },
+  "menuSource": "local",
+  "currency": "NGN",
+  "currencySymbol": "₦",
+  "priceRange": "₦₦",
+  "googleBusinessProfileUrl": "https://maps.google.com/?q=Zesti+Kitchen+Demo+Lekki",
+  "bankDetails": {
+    "bankName": "Demo Bank of Nigeria",
+    "accountNumber": "0123456789",
+    "accountName": "Zesti Kitchen Demo Ltd (Test Mode)"
+  },
+  "hours": {
+    "monThu": "11:00–22:00",
+    "friSat": "11:00–23:30",
+    "sun": "12:00–21:00"
+  }
+}
