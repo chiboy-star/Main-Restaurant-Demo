@@ -121,3 +121,4 @@ export interface ImageMetadata {
   license?: string;
   isAiGenerated?: boolean;
 }
+

@@ -118,3 +118,4 @@ describe('Open Now Logic (Africa/Lagos Timezone)', () => {
     expect(formatMinutesTo12h(60)).toBe('1 AM');
   });
 });
+

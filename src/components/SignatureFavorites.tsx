@@ -124,7 +124,11 @@ export default function SignatureFavorites() {
                     height="240"
                     loading="lazy"
                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    onerror="this.onerror=null; this.src='/images/placeholder-dish.svg';"
+                    onError={(e) => {
+                      const target = e.currentTarget as HTMLImageElement;
+                      target.onerror = null;
+                      target.src = '/images/placeholder-dish.svg';
+                    }}
                   />
                 </div>
               </div>
@@ -180,3 +184,4 @@ export default function SignatureFavorites() {
     </section>
   );
 }
+

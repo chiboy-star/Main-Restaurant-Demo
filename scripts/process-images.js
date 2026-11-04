@@ -150,3 +150,4 @@ processAllImages().catch(err => {
   console.error('Processing error:', err);
   process.exit(1);
 });
+

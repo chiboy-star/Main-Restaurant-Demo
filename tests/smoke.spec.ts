@@ -89,3 +89,4 @@ test.describe('Zesti Kitchen Mobile-First Smoke Tests', () => {
     await expect(page.locator('text=Sold Out')).toBeVisible();
   });
 });
+

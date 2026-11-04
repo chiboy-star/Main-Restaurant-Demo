@@ -47,3 +47,4 @@ export default function OpenNowBadge({ compact = false }: Props) {
     </div>
   );
 }
+

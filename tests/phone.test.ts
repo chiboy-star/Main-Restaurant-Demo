@@ -25,3 +25,4 @@ describe('Nigerian Phone Number Normaliser', () => {
     expect(formatDisplayPhone('08031234567')).toBe('+234 803 123 4567');
   });
 });
+

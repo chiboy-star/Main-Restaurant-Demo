@@ -18,3 +18,4 @@
 # Service worker must revalidate
 /sw.js
   Cache-Control: no-cache
+

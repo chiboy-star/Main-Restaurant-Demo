@@ -161,3 +161,4 @@ export function setCookieConsent(accepted: boolean): void {
   if (typeof window === 'undefined') return;
   localStorage.setItem(STORAGE_KEYS.COOKIE_CONSENT, accepted ? 'accepted' : 'declined');
 }
+

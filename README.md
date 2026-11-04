@@ -218,3 +218,4 @@ To build a private preview for a prospective restaurant:
 - **Link & Image Checker**: `scripts/check-links.js` scans all templates and fails the build on any broken route or missing asset.
 - **Image Validator**: `scripts/validate-images.js` enforces Hard Rule 7.
 - **E2E Smoke Tests (`playwright`)**: `tests/smoke.spec.ts` verifies the two-tap order flow and two-tap reservation on an iPhone viewport.
+

@@ -19,3 +19,4 @@ export function formatNaira(amount: number): string {
   }
   return nairaFormatter.format(amount).replace('NGN', '₦').trim();
 }
+

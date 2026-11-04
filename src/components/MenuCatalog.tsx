@@ -211,7 +211,11 @@ export default function MenuCatalog({ initialTable }: Props) {
                         class={`w-full h-full object-cover transition-transform duration-500 ${
                           isSoldOut ? 'grayscale contrast-75' : 'group-hover:scale-105'
                         }`}
-                        onerror="this.onerror=null; this.src='/images/placeholder-dish.svg';"
+                        onError={(e) => {
+                          const target = e.currentTarget as HTMLImageElement;
+                          target.onerror = null;
+                          target.src = '/images/placeholder-dish.svg';
+                        }}
                       />
 
                       {/* Sold Out Overlay Badge */}
@@ -327,3 +331,4 @@ export default function MenuCatalog({ initialTable }: Props) {
     </div>
   );
 }
+

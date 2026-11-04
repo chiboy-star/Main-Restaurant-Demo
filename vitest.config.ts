@@ -6,3 +6,4 @@ export default defineConfig({
     exclude: ['tests/**/*.spec.ts', 'node_modules']
   }
 });
+

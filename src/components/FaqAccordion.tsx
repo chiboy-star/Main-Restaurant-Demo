@@ -72,3 +72,4 @@ export default function FaqAccordion({ limit }: Props) {
     </div>
   );
 }
+

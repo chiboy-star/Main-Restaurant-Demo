@@ -23,3 +23,4 @@ describe('Currency Formatter (formatNaira)', () => {
     expect(formatNaira(undefined as any)).toBe('₦0');
   });
 });
+

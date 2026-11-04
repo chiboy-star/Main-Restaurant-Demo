@@ -353,3 +353,4 @@ run().catch((err) => {
   console.error('Image pipeline error:', err);
   process.exit(1);
 });
+
