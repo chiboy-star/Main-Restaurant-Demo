@@ -6,20 +6,22 @@ export default defineConfig({
   fullyParallel: false,
   timeout: 30000,
   use: {
-    baseURL: 'http://localhost:4321',
+    baseURL: 'http://127.0.0.1:4321',
     trace: 'on-first-retry',
   },
   webServer: {
-    command: 'npx --no-install astro preview --port 4321',
-    url: 'http://localhost:4321',
+    command: 'node scripts/serve.js',
+    url: 'http://127.0.0.1:4321',
     reuseExistingServer: false,
     timeout: 30000,
   },
   projects: [
     {
-      name: 'Mobile Safari / Chrome',
-      use: { ...devices['iPhone 14'] },
+      name: 'Mobile Chrome',
+      use: {
+        ...devices['Pixel 7'],
+        channel: 'chrome',
+      },
     },
   ],
 });
-

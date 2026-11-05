@@ -257,7 +257,7 @@ export default function AdminDashboard() {
                 type="email"
                 value={emailInput}
                 onInput={(e) => setEmailInput((e.target as HTMLInputElement).value)}
-                placeholder="owner@zestikitchen.com"
+                placeholder="owner@demo.restaurant.example"
                 required
                 class="w-full px-4 py-3 rounded-squircle-sm bg-charcoal/5 dark:bg-charcoal-50 border border-charcoal/15 dark:border-cream/15 text-charcoal dark:text-cream text-sm focus:outline-none focus:ring-2 focus:ring-lemon min-h-[48px]"
               />

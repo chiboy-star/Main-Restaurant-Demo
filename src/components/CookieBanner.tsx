@@ -22,7 +22,7 @@ export default function CookieBanner() {
     <aside
       role="region"
       aria-label="Cookie and privacy preferences"
-      class="fixed bottom-0 inset-x-0 z-50 bg-charcoal text-cream border-t border-lemon/30 px-4 py-2.5 shadow-2xl safe-pb"
+      class="fixed bottom-0 inset-x-0 z-30 bg-charcoal text-cream border-t border-lemon/30 px-4 py-2.5 shadow-2xl safe-pb"
     >
       <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
         <p class="text-center sm:text-left text-cream/90">

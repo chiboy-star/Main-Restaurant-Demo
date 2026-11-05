@@ -231,7 +231,7 @@ export default function CartSheet() {
         <aside
           id="cart-sticky-bar"
           aria-label="Current order sticky summary"
-          class="fixed bottom-0 inset-x-0 z-40 bg-charcoal text-cream border-t border-lemon/30 shadow-[0_-8px_30px_rgba(0,0,0,0.3)] safe-pb animate-slide-up"
+          class="fixed bottom-0 inset-x-0 z-[60] bg-charcoal text-cream border-t border-lemon/30 shadow-[0_-8px_30px_rgba(0,0,0,0.3)] safe-pb animate-slide-up"
         >
           <div class="max-w-4xl mx-auto px-4 py-3 sm:py-3.5 flex items-center justify-between gap-3">
             

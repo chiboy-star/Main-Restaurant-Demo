@@ -1,6 +1,2 @@
-# Demo site - do not index
 User-agent: *
 Disallow: /
-
-Sitemap: https://zesti-demo.pages.dev/sitemap-index.xml
-

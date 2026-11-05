@@ -1,7 +1,7 @@
 import { test, expect, devices } from '@playwright/test';
 
 test.use({
-  ...devices['iPhone 14'],
+  ...devices['Pixel 7'],
   viewport: { width: 390, height: 844 }
 });
 
@@ -71,7 +71,7 @@ test.describe('Zesti Kitchen Mobile-First Smoke Tests', () => {
     await page.goto('/admin');
 
     // Enter email & verify code
-    await page.fill('#admin-email', 'owner@zestikitchen.com');
+    await page.fill('#admin-email', 'owner@demo.restaurant.example');
     await page.click('button:has-text("Send Access Code")');
 
     // One-time code input
@@ -86,7 +86,7 @@ test.describe('Zesti Kitchen Mobile-First Smoke Tests', () => {
     // Toggle sold-out on first dish
     const toggleBtn = page.locator('button:has-text("In Stock")').first();
     await toggleBtn.click();
-    await expect(page.locator('text=Sold Out')).toBeVisible();
+    await expect(page.locator('button:has-text("Sold Out")').first()).toBeVisible();
   });
 });
 

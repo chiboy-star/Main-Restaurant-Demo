@@ -18,12 +18,14 @@ interface Props {
   title: string;
   description?: string;
   image?: string;
+  preloadImage?: string;
 }
 
 const {
   title,
   description = "Fresh, fast, and fully yours. Artisanal Nigerian grills, firewood smoky party jollof, and small plates in Lekki, Lagos. Order or reserve in two taps.",
-  image = "/images/og-image.jpg"
+  image = "/images/og-image.jpg",
+  preloadImage
 } = Astro.props;
 
 // Hard Rule 1: "Demo in every page title"
@@ -95,10 +97,17 @@ const restaurantJsonLd = {
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
 
-    {/* Hard Rule 4: Noindex switch */}
-    {isNoIndex && (
-      <meta name="robots" content="noindex, nofollow" />
-      <meta name="googlebot" content="noindex, nofollow" />
+    {/* Hard Rule 4: Noindex switch controlled by brand.json */}
+    {isNoIndex ? (
+      <>
+        <meta name="robots" content="noindex, nofollow" />
+        <meta name="googlebot" content="noindex, nofollow" />
+      </>
+    ) : (
+      <>
+        <meta name="robots" content="index, follow" />
+        <meta name="googlebot" content="index, follow" />
+      </>
     )}
 
     {/* Primary Meta Tags */}
@@ -124,6 +133,9 @@ const restaurantJsonLd = {
     {/* Preload Self-Hosted Subset WOFF2 Fonts */}
     <link rel="preload" href="/fonts/dm-serif-display.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/dm-sans.woff2" as="font" type="font/woff2" crossorigin />
+    {preloadImage && (
+      <link rel="preload" href={preloadImage} as="image" type="image/webp" fetchpriority="high" />
+    )}
 
     {/* Schema.org Restaurant JSON-LD */}
     <script type="application/ld+json" set:html={JSON.stringify(restaurantJsonLd)} />
@@ -163,12 +175,12 @@ const restaurantJsonLd = {
       <slot />
     </main>
 
-    {/* Global Interactive Islands */}
+    {/* Global Interactive Islands - defer non-critical islands to client:idle */}
     <CartSheet client:load />
-    <FloatingContact client:load />
-    <CommandMenu client:load />
-    <BackToTop client:load />
-    <CookieBanner client:load />
+    <FloatingContact client:idle />
+    <CommandMenu client:idle />
+    <BackToTop client:idle />
+    <CookieBanner client:idle />
 
     {/* Footer */}
     <Footer />

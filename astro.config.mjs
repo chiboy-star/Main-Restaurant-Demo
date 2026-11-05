@@ -1,7 +1,7 @@
 import { defineConfig } from 'astro/config';
 import preact from '@astrojs/preact';
 import tailwind from '@astrojs/tailwind';
-import sitemap from '@astrojs/sitemap';
+import { seoSitemapIntegration } from './src/integrations/seo-sitemap';
 
 // https://astro.build/config
 export default defineConfig({
@@ -14,9 +14,7 @@ export default defineConfig({
     tailwind({
       applyBaseStyles: false
     }),
-    sitemap({
-      filter: (page) => !page.includes('/admin')
-    })
+    seoSitemapIntegration()
   ],
   vite: {
     ssr: {
@@ -24,4 +22,3 @@ export default defineConfig({
     }
   }
 });
-

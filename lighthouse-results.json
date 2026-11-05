@@ -1,0 +1,29 @@
+{
+  "/": {
+    "performance": 92,
+    "accessibility": 100,
+    "bestPractices": 100,
+    "seo": 100,
+    "lcpSeconds": 4.12,
+    "cls": 0.002,
+    "inpMs": 97
+  },
+  "/menu": {
+    "performance": 100,
+    "accessibility": 100,
+    "bestPractices": 100,
+    "seo": 100,
+    "lcpSeconds": 0.62,
+    "cls": 0.002,
+    "inpMs": 99
+  },
+  "/reserve": {
+    "performance": 100,
+    "accessibility": 100,
+    "bestPractices": 100,
+    "seo": 100,
+    "lcpSeconds": 0.14,
+    "cls": 0.002,
+    "inpMs": 71
+  }
+}
